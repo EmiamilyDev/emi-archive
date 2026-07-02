@@ -18,3 +18,9 @@ Minimal premium editorial archive site scaffold.
 ## Run
 
 Open `index.html` directly in a browser, or serve with any static server.
+
+## Deploy (Vercel)
+
+1. `npm i -g vercel` (or use `npx vercel`)
+2. `vercel` for first-time project link
+3. `vercel --prod` to publish to production
