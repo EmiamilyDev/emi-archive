@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive List | EMI Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html">EMI ARCHIVE</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="archive.html" class="is-active">Archive</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="collections.html">Collections</a>
+        <a href="about.html">About</a>
+        <a href="#search">Search</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page-main">
+    <section class="section-head section-head--stacked">
+      <p class="kicker">Archive List</p>
+      <h1>Fashion Archive Records</h1>
+      <p>Search and filter by year, brand, event type, and location.</p>
+    </section>
+
+    <section id="search" class="filters-panel" aria-label="Archive filters">
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search records..." aria-label="Search records" />
+        <select id="yearFilter" aria-label="Filter by year">
+          <option value="">Year</option>
+        </select>
+        <select id="brandFilter" aria-label="Filter by brand">
+          <option value="">Brand</option>
+        </select>
+        <select id="eventFilter" aria-label="Filter by event type">
+          <option value="">Event Type</option>
+        </select>
+        <select id="locationFilter" aria-label="Filter by location">
+          <option value="">Location</option>
+        </select>
+        <button id="toggleView" type="button">Switch to List</button>
+      </div>
+      <p id="recordsCount" class="filters-meta"></p>
+    </section>
+
+    <section id="archiveRecords" class="record-grid" aria-label="Archive records"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>© <span id="year"></span> EMI Archive</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMI Archive | Digital Museum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="home-ref">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html">EMI ARCHIVE</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="archive.html">Archive</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="collections.html">Collections</a>
+        <a href="about.html">About</a>
+        <a href="archive.html#search">Search</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="kicker">Fashion Archive</p>
+        <h1>Every look.<br />Every moment.<br />Every milestone.</h1>
+        <p>A curated archive of Emi's fashion journey.</p>
+        <a class="button" href="archive.html">Explore Fashion Archive</a>
+      </div>
+      <div class="hero-art">
+        <img src="assets/images/emi01.png" alt="Emi portrait" />
+        <span class="hero-medallion" aria-hidden="true">EA</span>
+      </div>
+    </section>
+
+    <section class="stats shell" aria-label="Quick stats">
+      <article><p>Total Records</p><h2>24</h2></article>
+      <article><p>Fashion Events</p><h2>12</h2></article>
+      <article><p>Brands</p><h2>9</h2></article>
+      <article><p>Countries</p><h2>5</h2></article>
+    </section>
+
+    <section class="records shell">
+      <div class="section-head">
+        <h2>Latest Archive Records</h2>
+        <a href="archive.html">View all</a>
+      </div>
+      <div class="record-grid">
+        <article class="card">
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Miu Miu record thumbnail" /></div>
+          <p class="meta">Archive Record #024</p>
+          <h3>Miu Miu FW26 Show</h3>
+          <p class="card-keyline">Paris, France</p>
+          <p class="meta">Mar 2025</p>
+        </article>
+        <article class="card">
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Vogue Thailand record thumbnail" /></div>
+          <p class="meta">Archive Record #021</p>
+          <h3>Vogue Thailand April 2025</h3>
+          <p class="card-keyline">Bangkok, Thailand</p>
+          <p class="meta">Apr 2025</p>
+        </article>
+        <article class="card">
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Saint Laurent record thumbnail" /></div>
+          <p class="meta">Archive Record #017</p>
+          <h3>Saint Laurent Women Summer</h3>
+          <p class="card-keyline">Paris, France</p>
+          <p class="meta">Jun 2024</p>
+        </article>
+        <article class="card">
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Fendi record thumbnail" /></div>
+          <p class="meta">Archive Record #012</p>
+          <h3>Fendi Event</h3>
+          <p class="card-keyline">Milan, Italy</p>
+          <p class="meta">Feb 2024</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote shell">
+      <blockquote>Fashion is part of the story, not the whole story.<br />But every step leaves a mark.</blockquote>
+      <p class="quote-credit">— Emi</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>© <span id="year"></span> EMI Archive</p>
+    </div>
+  </footer>
+
+  <nav class="mobile-dock" aria-label="Mobile quick navigation">
+    <a class="is-active" href="index.html"><span aria-hidden="true">⌂</span><em>Home</em></a>
+    <a href="archive.html"><span aria-hidden="true">▦</span><em>Archive</em></a>
+    <a href="timeline.html"><span aria-hidden="true">◷</span><em>Timeline</em></a>
+    <a href="collections.html"><span aria-hidden="true">◇</span><em>Collections</em></a>
+  </nav>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
