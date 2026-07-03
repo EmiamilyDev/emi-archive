@@ -6,7 +6,7 @@
   <title>Collections | EMI Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -20,66 +20,149 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
-        <div class="nav-item-with-submenu">
-          <a href="archive.html" class="nav-item">Archive</a>
-          <ul class="nav-submenu" aria-label="Archive categories">
-            <li><a href="archive.html?category=ON%20SCREEN">ON SCREEN</a></li>
-            <li><a href="archive.html?category=IN%20STYLE">IN STYLE</a></li>
-            <li><a href="archive.html?category=ON%20STAGE">ON STAGE</a></li>
-          </ul>
-        </div>
+        <a href="archive.html">Archive</a>
         <a href="timeline.html">Timeline</a>
         <a href="collections.html" class="is-active">Collections</a>
         <a href="about.html">About</a>
         <a href="archive.html#search">Search</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </header>
   <main class="shell page-main">
-    <section class="section-head section-head--stacked">
-      <p class="kicker">Collections</p>
-      <h1>Curated Collections</h1>
-      <p>Browse archive records grouped by brand and event context.</p>
+    <!-- Collections Overview -->
+    <section class="collections-overview">
+      <div class="section-head section-head--stacked">
+        <p class="kicker">Collections</p>
+        <h1>Curated Collections</h1>
+        <p>Explore archive records grouped by theme, brand, and creative domain.</p>
+      </div>
+      <p class="collections-intro">Every collection represents a curated exploration of a specific theme or moment in Emi's creative journey. Browse by section to discover how her story unfolds across acting, fashion, and music.</p>
     </section>
 
-    <section class="records" aria-label="Brand collections">
-      <div class="section-head">
-        <h2>Brand Collections</h2>
-      </div>
-      <div class="record-grid">
-        <article class="card">
-          <p class="meta">Collection</p>
-          <h3>Miu Miu Archive Set</h3>
-          <p class="card-keyline">Runway and campaign records connected to Miu Miu appearances.</p>
-        </article>
-        <article class="card">
-          <p class="meta">Collection</p>
-          <h3>Prada Editorial Set</h3>
-          <p class="card-keyline">Editorial moments and event styling tied to Prada narratives.</p>
-        </article>
-      </div>
-    </section>
+    <!-- Collections by Section -->
+    <section class="collections-by-section" aria-label="Collections grouped by section">
+      
+      <!-- ON SCREEN Collections -->
+      <section class="section-collection-group">
+        <div class="collection-group-header">
+          <h2>ON SCREEN</h2>
+          <p>Stories told through acting</p>
+        </div>
+        <div class="collections-grid">
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">📽</div>
+            <h3>Early Career</h3>
+            <p class="collection-count">5 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎭</div>
+            <h3>Supporting Roles</h3>
+            <p class="collection-count">8 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">⭐</div>
+            <h3>Lead Roles</h3>
+            <p class="collection-count">10 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">📺</div>
+            <h3>Television</h3>
+            <p class="collection-count">7 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎬</div>
+            <h3>Film</h3>
+            <p class="collection-count">6 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🏆</div>
+            <h3>Recognition</h3>
+            <p class="collection-count">8 Records</p>
+          </a>
+        </div>
+      </section>
 
-    <section class="records" aria-label="Event collections">
-      <div class="section-head">
-        <h2>Event Collections</h2>
-      </div>
-      <div class="record-grid">
-        <article class="card">
-          <p class="meta">Collection</p>
-          <h3>Fashion Week Highlights</h3>
-          <p class="card-keyline">Milestones from international and regional fashion week events.</p>
-        </article>
-        <article class="card">
-          <p class="meta">Collection</p>
-          <h3>Editorial &amp; Press Moments</h3>
-          <p class="card-keyline">Magazine features, interviews, and visual storytelling highlights.</p>
-        </article>
-      </div>
+      <!-- IN STYLE Collections -->
+      <section class="section-collection-group">
+        <div class="collection-group-header">
+          <h2>IN STYLE</h2>
+          <p>Fashion and visual identity</p>
+        </div>
+        <div class="collections-grid">
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🌍</div>
+            <h3>Fashion Week</h3>
+            <p class="collection-count">8 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">📰</div>
+            <h3>Editorial</h3>
+            <p class="collection-count">12 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">📖</div>
+            <h3>Magazine Covers</h3>
+            <p class="collection-count">8 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎨</div>
+            <h3>Brand Campaigns</h3>
+            <p class="collection-count">10 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">👗</div>
+            <h3>Front Row</h3>
+            <p class="collection-count">6 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">✨</div>
+            <h3>Style Notes</h3>
+            <p class="collection-count">7 Records</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- ON STAGE Collections -->
+      <section class="section-collection-group">
+        <div class="collection-group-header">
+          <h2>ON STAGE</h2>
+          <p>Music and live performance</p>
+        </div>
+        <div class="collections-grid">
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎵</div>
+            <h3>Original Soundtracks</h3>
+            <p class="collection-count">6 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎶</div>
+            <h3>Singles</h3>
+            <p class="collection-count">8 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎤</div>
+            <h3>Live Performances</h3>
+            <p class="collection-count">12 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎸</div>
+            <h3>Concerts</h3>
+            <p class="collection-count">5 Records</p>
+          </a>
+          <a href="#" class="collection-item">
+            <div class="collection-item-icon">🎬</div>
+            <h3>Music Videos</h3>
+            <p class="collection-count">7 Records</p>
+          </a>
+        </div>
+      </section>
+
     </section>
   </main>
   <footer class="site-footer"><div class="shell"><p>© <span id="year"></span> EMI Archive</p></div></footer>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+

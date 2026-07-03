@@ -6,7 +6,7 @@
   <title>Timeline | EMI Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -20,55 +20,189 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
-        <div class="nav-item-with-submenu">
-          <a href="archive.html" class="nav-item">Archive</a>
-          <ul class="nav-submenu" aria-label="Archive categories">
-            <li><a href="archive.html?category=ON%20SCREEN">ON SCREEN</a></li>
-            <li><a href="archive.html?category=IN%20STYLE">IN STYLE</a></li>
-            <li><a href="archive.html?category=ON%20STAGE">ON STAGE</a></li>
-          </ul>
-        </div>
+        <a href="archive.html">Archive</a>
         <a href="timeline.html" class="is-active">Timeline</a>
         <a href="collections.html">Collections</a>
         <a href="about.html">About</a>
         <a href="archive.html#search">Search</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </header>
   <main class="shell page-main">
-    <section class="section-head section-head--stacked">
-      <p class="kicker">Timeline</p>
-      <h1>Fashion Journey Timeline</h1>
-      <p>Key chapters from first public appearances to international fashion milestones.</p>
-    </section>
-
-    <section class="records" aria-label="Fashion journey timeline milestones">
-      <div class="record-grid">
-        <article class="card">
-          <p class="meta">2023</p>
-          <h3>First Editorial Features</h3>
-          <p class="card-keyline">Early press coverage and image identity development.</p>
-        </article>
-        <article class="card">
-          <p class="meta">2024</p>
-          <h3>Brand Collaborations Begin</h3>
-          <p class="card-keyline">Initial partnerships with regional luxury and fashion labels.</p>
-        </article>
-        <article class="card">
-          <p class="meta">2025</p>
-          <h3>International Fashion Week Debut</h3>
-          <p class="card-keyline">A key transition into global fashion visibility.</p>
-        </article>
-        <article class="card">
-          <p class="meta">2026</p>
-          <h3>Archive Era Expansion</h3>
-          <p class="card-keyline">Consolidation of milestones into a structured digital archive.</p>
-        </article>
+    <!-- Timeline Hero -->
+    <section class="timeline-hero">
+      <div class="section-head section-head--stacked">
+        <p class="kicker">Timeline</p>
+        <h1>The Creative Journey</h1>
+        <p>A chronological exploration of meaningful moments in Emi's creative evolution.</p>
       </div>
     </section>
+
+    <!-- View Controls -->
+    <section class="timeline-controls">
+      <div class="view-switcher" role="tablist" aria-label="Timeline view options">
+        <button class="view-button is-active" role="tab" aria-selected="true" data-view="by-year">
+          By Year
+        </button>
+        <button class="view-button" role="tab" aria-selected="false" data-view="by-milestone">
+          By Milestone
+        </button>
+        <button class="view-button" role="tab" aria-selected="false" data-view="chronological">
+          Chronological
+        </button>
+      </div>
+    </section>
+
+    <!-- Year Filter (Sticky) -->
+    <section class="year-filter-bar" aria-label="Filter by year">
+      <div class="year-badges">
+        <button class="year-badge is-active" data-year="all">All Years</button>
+        <button class="year-badge" data-year="2026">2026</button>
+        <button class="year-badge" data-year="2025">2025</button>
+        <button class="year-badge" data-year="2024">2024</button>
+        <button class="year-badge" data-year="2023">2023</button>
+      </div>
+    </section>
+
+    <!-- View 1: By Year -->
+    <section class="timeline-view is-active" id="view-by-year" role="tabpanel">
+      <div class="timeline-vertical">
+        
+        <!-- 2026 -->
+        <div class="timeline-year-group" data-year="2026">
+          <div class="timeline-year-header">
+            <h2>2026</h2>
+            <p class="year-description">Archive era expansion</p>
+          </div>
+          <div class="timeline-records">
+            <a href="record.html" class="timeline-record-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-record-content">
+                <h3>#008 · Prada Evening Archive</h3>
+                <time>February 2026</time>
+                <p class="timeline-record-desc">Global brand collaborations</p>
+              </div>
+            </a>
+            <a href="record.html" class="timeline-record-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-record-content">
+                <h3>#009 · Valentino Resort</h3>
+                <time>April 2026</time>
+                <p class="timeline-record-desc">Contemporary design partnerships</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="timeline-year-group" data-year="2025">
+          <div class="timeline-year-header">
+            <h2>2025</h2>
+            <p class="year-description">International fashion week debut</p>
+          </div>
+          <div class="timeline-records">
+            <a href="record.html" class="timeline-record-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-record-content">
+                <h3>#001 · Miu Miu Fashion Week</h3>
+                <time>March 2025</time>
+                <p class="timeline-record-desc">First international runway appearance</p>
+              </div>
+            </a>
+            <a href="record.html" class="timeline-record-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-record-content">
+                <h3>#003 · Vogue Thailand Cover</h3>
+                <time>November 2025</time>
+                <p class="timeline-record-desc">Magazine cover milestone</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="timeline-year-group" data-year="2024">
+          <div class="timeline-year-header">
+            <h2>2024</h2>
+            <p class="year-description">Brand collaborations begin</p>
+          </div>
+          <div class="timeline-records">
+            <a href="record.html" class="timeline-record-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-record-content">
+                <h3>#005 · First Editorial Feature</h3>
+                <time>May 2024</time>
+                <p class="timeline-record-desc">Brand partnership announcement</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- View 2: By Milestone -->
+    <section class="timeline-view" id="view-by-milestone" role="tabpanel">
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <div class="milestone-marker">◆</div>
+          <h3>2023: Career Launch</h3>
+          <p class="milestone-description">Early public appearances and identity development through editorial features and regional media coverage.</p>
+          <span class="milestone-count">3 Records</span>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-marker">◆</div>
+          <h3>2024: Regional Recognition</h3>
+          <p class="milestone-description">Building momentum with regional brand collaborations and fashion editorial placements.</p>
+          <span class="milestone-count">5 Records</span>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-marker">◆</div>
+          <h3>2025: International Breakthrough</h3>
+          <p class="milestone-description">Global fashion week debut and emergence on the international stage with major brand partnerships.</p>
+          <span class="milestone-count">8 Records</span>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-marker">◆</div>
+          <h3>2026: Global Expansion</h3>
+          <p class="milestone-description">Consolidation of international presence with continued brand collaborations and media features.</p>
+          <span class="milestone-count">4 Records</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 3: Chronological List -->
+    <section class="timeline-view" id="view-chronological" role="tabpanel">
+      <div class="chronological-list">
+        <div class="chronological-item">
+          <h3>#001</h3>
+          <h4>Miu Miu Fashion Week</h4>
+          <time>March 2025</time>
+          <p>First international fashion week appearance</p>
+          <a href="record.html" class="view-link">View Record →</a>
+        </div>
+        <div class="chronological-item">
+          <h3>#002</h3>
+          <h4>Prada Editorial</h4>
+          <time>May 2025</time>
+          <p>Magazine editorial feature</p>
+          <a href="record.html" class="view-link">View Record →</a>
+        </div>
+        <div class="chronological-item">
+          <h3>#003</h3>
+          <h4>Vogue Cover</h4>
+          <time>November 2025</time>
+          <p>Vogue Thailand cover feature</p>
+          <a href="record.html" class="view-link">View Record →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer class="site-footer"><div class="shell"><p>© <span id="year"></span> EMI Archive</p></div></footer>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+

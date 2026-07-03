@@ -6,7 +6,7 @@
   <title>Archive List | EMI Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -20,64 +20,78 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
-        <div class="nav-item-with-submenu">
-          <a href="archive.html" class="nav-item is-active">Archive</a>
-          <ul class="nav-submenu" aria-label="Archive categories">
-            <li><a href="archive.html?category=ON%20SCREEN">ON SCREEN</a></li>
-            <li><a href="archive.html?category=IN%20STYLE">IN STYLE</a></li>
-            <li><a href="archive.html?category=ON%20STAGE">ON STAGE</a></li>
-          </ul>
-        </div>
+        <a href="archive.html" class="is-active">Archive</a>
         <a href="timeline.html">Timeline</a>
         <a href="collections.html">Collections</a>
         <a href="about.html">About</a>
         <a href="#search">Search</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </header>
 
+  <nav class="archive-subnav" aria-label="Archive categories">
+    <div class="shell subnav-inner">
+      <a href="archive.html?category=ON%20SCREEN" class="subnav-link" data-category="ON SCREEN">ON SCREEN</a>
+      <a href="archive.html?category=IN%20STYLE" class="subnav-link" data-category="IN STYLE">IN STYLE</a>
+      <a href="archive.html?category=ON%20STAGE" class="subnav-link" data-category="ON STAGE">ON STAGE</a>
+    </div>
+  </nav>
+
   <main class="shell page-main">
-    <section class="section-head section-head--stacked">
-      <p class="kicker">Archive List</p>
-      <h1>Fashion Archive Records</h1>
-      <p>Explore Emi's complete archive across three main categories: ON SCREEN, IN STYLE, and ON STAGE.</p>
-    </section>
-
-    <section class="section-head">
-      <h2>All Records</h2>
-      <a href="#search">Filter &amp; Search</a>
-    </section>
-
-    <section id="archiveFeature" class="archive-feature" aria-label="Featured archive card"></section>
-
-    <section id="search" class="filters-panel" aria-label="Archive filters">
-      <div class="filters">
-        <input id="searchInput" type="search" placeholder="Search records..." aria-label="Search records" />
-        <select id="categoryFilter" aria-label="Filter by category">
-          <option value="">Category</option>
-        </select>
-        <select id="subcategoryFilter" aria-label="Filter by subcategory">
-          <option value="">Subcategory</option>
-        </select>
-        <select id="yearFilter" aria-label="Filter by year">
-          <option value="">Year</option>
-        </select>
-        <select id="brandFilter" aria-label="Filter by brand">
-          <option value="">Brand</option>
-        </select>
-        <select id="eventFilter" aria-label="Filter by event type">
-          <option value="">Event Type</option>
-        </select>
-        <select id="locationFilter" aria-label="Filter by location">
-          <option value="">Location</option>
-        </select>
-        <button id="toggleView" type="button">Switch to List</button>
+    <!-- Section Hero -->
+    <section class="section-hero" id="section-hero">
+      <div class="section-hero-content">
+        <p class="kicker">Archive Section</p>
+        <h1 id="section-title">ON SCREEN</h1>
+        <p id="section-description" class="section-description">Stories told through acting—from early career moments to lead roles that defined her on-screen presence.</p>
+        <div class="section-stats">
+          <span><strong id="collection-count">6</strong> Collections</span>
+          <span><strong id="record-count">28</strong> Records</span>
+        </div>
       </div>
-      <p id="recordsCount" class="filters-meta"></p>
     </section>
 
-    <section id="archiveRecords" class="record-grid" aria-label="Archive records"></section>
+    <!-- Collections in Section -->
+    <section class="section-collections" id="section-collections" aria-label="Collections in this section">
+      <h2>Collections in <span id="section-name">ON SCREEN</span></h2>
+      <div class="collections-browser-grid" id="collections-grid"></div>
+    </section>
+
+    <!-- All Records Section -->
+    <section class="all-records-section">
+      <div class="section-head">
+        <h2>All Records</h2>
+        <a href="#search">Filter & Search</a>
+      </div>
+
+      <section id="search" class="filters-panel" aria-label="Archive filters">
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search records..." aria-label="Search records" />
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="">Category</option>
+          </select>
+          <select id="subcategoryFilter" aria-label="Filter by subcategory">
+            <option value="">Subcategory</option>
+          </select>
+          <select id="yearFilter" aria-label="Filter by year">
+            <option value="">Year</option>
+          </select>
+          <select id="brandFilter" aria-label="Filter by brand">
+            <option value="">Brand</option>
+          </select>
+          <select id="eventFilter" aria-label="Filter by event type">
+            <option value="">Event Type</option>
+          </select>
+          <select id="locationFilter" aria-label="Filter by location">
+            <option value="">Location</option>
+          </select>
+          <button id="toggleView" type="button">Switch to List</button>
+        </div>
+        <p id="recordsCount" class="filters-meta"></p>
+      </section>
+
+      <section id="archiveRecords" class="record-grid" aria-label="Archive records"></section>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -89,3 +103,6 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+

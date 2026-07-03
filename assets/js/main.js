@@ -7,33 +7,6 @@ const archiveRecords = [
   { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome", category: "IN STYLE", subcategory: "Editorial" }
 ];
 
-function setupThemeToggle() {
-  const toggle = document.querySelector(".theme-toggle");
-  const html = document.documentElement;
-  
-  // Load saved theme preference
-  const savedTheme = localStorage.getItem("theme") || "light";
-  console.log("🌙 Theme System: Loaded saved theme:", savedTheme);
-  
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-theme");
-    if (toggle) toggle.textContent = "☀️";
-    console.log("🌙 Theme System: Applied dark theme class");
-  }
-  
-  if (!toggle) {
-    console.warn("🌙 Theme System: Toggle button not found!");
-    return;
-  }
-  
-  toggle.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-theme");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    toggle.textContent = isDark ? "☀️" : "🌙";
-    console.log("🌙 Theme System: Toggled to", isDark ? "dark" : "light", "mode");
-  });
-}
-
 const archiveFeaturedCard = {
   cardId: "001",
   category: "Fashion",
@@ -236,7 +209,6 @@ function setupArchiveListPage() {
     if (field) field.addEventListener("input", () => renderArchiveList(getFilteredRecords()));
     if (field) field.addEventListener("change", () => renderArchiveList(getFilteredRecords()));
   });
-  });
 
   const toggle = document.getElementById("toggleView");
   if (toggle) {
@@ -256,18 +228,42 @@ function setupNavSubmenu() {
     
     if (!navItem || !submenu) return;
     
+    // Set inert on hidden submenu
+    submenu.setAttribute("inert", "true");
+    submenu.setAttribute("aria-hidden", "true");
+    
+    // Show submenu on hover (desktop)
+    item.addEventListener("mouseenter", () => {
+      submenu.removeAttribute("inert");
+      submenu.removeAttribute("aria-hidden");
+    });
+    
+    // Hide submenu on mouse leave
+    item.addEventListener("mouseleave", () => {
+      submenu.setAttribute("inert", "true");
+      submenu.setAttribute("aria-hidden", "true");
+    });
+    
     // Handle click on smaller screens
     navItem.addEventListener("click", (e) => {
       if (window.innerWidth <= 700) {
         e.preventDefault();
-        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        const isHidden = submenu.hasAttribute("inert");
+        if (isHidden) {
+          submenu.removeAttribute("inert");
+          submenu.removeAttribute("aria-hidden");
+        } else {
+          submenu.setAttribute("inert", "true");
+          submenu.setAttribute("aria-hidden", "true");
+        }
       }
     });
     
     // Close submenu on link click
     submenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        submenu.style.display = "none";
+        submenu.setAttribute("inert", "true");
+        submenu.setAttribute("aria-hidden", "true");
       });
     });
   });
@@ -314,9 +310,88 @@ function setupMobileNav() {
   if (window.innerWidth > 700) nav.setAttribute("aria-hidden", "false");
 }
 
+function setupArchiveSubnav() {
+  const subnav = document.querySelector(".archive-subnav");
+  if (!subnav) return;
+
+  const links = subnav.querySelectorAll(".subnav-link");
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentCategory = urlParams.get("category");
+
+  links.forEach((link) => {
+    const category = link.getAttribute("data-category");
+    if (currentCategory && category === currentCategory) {
+      link.classList.add("is-active");
+    } else if (!currentCategory && link.href === window.location.href) {
+      link.classList.add("is-active");
+    } else {
+      link.classList.remove("is-active");
+    }
+  });
+}
+
+function setupTimelineViews() {
+  const viewButtons = document.querySelectorAll(".view-button");
+  const timelineViews = document.querySelectorAll(".timeline-view");
+
+  if (viewButtons.length === 0) return;
+
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const viewName = button.getAttribute("data-view");
+
+      // Update button states
+      viewButtons.forEach((btn) => {
+        btn.classList.remove("is-active");
+        btn.setAttribute("aria-selected", "false");
+      });
+      button.classList.add("is-active");
+      button.setAttribute("aria-selected", "true");
+
+      // Update view visibility
+      timelineViews.forEach((view) => {
+        view.classList.remove("is-active");
+      });
+      const activeView = document.getElementById(`view-${viewName}`);
+      if (activeView) {
+        activeView.classList.add("is-active");
+      }
+    });
+  });
+}
+
+function setupYearFilter() {
+  const yearBadges = document.querySelectorAll(".year-badge");
+  const timelineGroups = document.querySelectorAll(".timeline-year-group");
+
+  if (yearBadges.length === 0) return;
+
+  yearBadges.forEach((badge) => {
+    badge.addEventListener("click", () => {
+      const year = badge.getAttribute("data-year");
+
+      // Update badge states
+      yearBadges.forEach((b) => b.classList.remove("is-active"));
+      badge.classList.add("is-active");
+
+      // Filter timeline groups
+      timelineGroups.forEach((group) => {
+        const groupYear = group.getAttribute("data-year");
+        if (year === "all" || groupYear === year) {
+          group.style.display = "block";
+        } else {
+          group.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
 updateYear();
-setupThemeToggle();
 setupNavSubmenu();
 renderArchiveFeatureCard();
 setupArchiveListPage();
 setupMobileNav();
+setupArchiveSubnav();
+setupTimelineViews();
+setupYearFilter();

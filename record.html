@@ -6,7 +6,7 @@
   <title>Archive Record Detail | EMI Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -20,87 +20,173 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
-        <div class="nav-item-with-submenu">
-          <a href="archive.html" class="nav-item">Archive</a>
-          <ul class="nav-submenu" aria-label="Archive categories">
-            <li><a href="archive.html?category=ON%20SCREEN">ON SCREEN</a></li>
-            <li><a href="archive.html?category=IN%20STYLE">IN STYLE</a></li>
-            <li><a href="archive.html?category=ON%20STAGE">ON STAGE</a></li>
-          </ul>
-        </div>
+        <a href="archive.html">Archive</a>
         <a href="timeline.html">Timeline</a>
         <a href="collections.html">Collections</a>
         <a href="about.html">About</a>
         <a href="archive.html#search">Search</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </header>
 
   <main class="shell page-main">
-    <section class="section-head section-head--stacked">
-      <p class="kicker">Archive Record Detail</p>
-      <h1>Miu Miu FW26 Show Appearance</h1>
-      <p class="detail-kicker">Paris · 2 March 2026 · Miu Miu · Runway</p>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">EMI ARCHIVE</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="archive.html">ARCHIVE</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="archive.html?category=IN%20STYLE">IN STYLE</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="#">FASHION WEEK</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">#001</span>
+    </nav>
+
+    <!-- Archive Record Header -->
+    <section class="record-header">
+      <div class="record-header-meta">
+        <span class="record-archive-number">#001</span>
+        <span class="record-section">IN STYLE</span>
+        <span class="record-collection">Fashion Week</span>
+      </div>
+      <h1>First International Fashion Week</h1>
+      <div class="record-header-details">
+        <time datetime="2025-03">March 2025</time>
+        <span>Paris, France</span>
+        <span>Miu Miu</span>
+      </div>
     </section>
 
-    <section class="detail-gallery">
-      <div class="detail-image"></div>
-      <div class="detail-image tone-2"></div>
-      <div class="detail-image tone-3"></div>
+    <!-- Hero Image -->
+    <section class="record-hero-image">
+      <img src="assets/images/emi01.png" alt="Emi at Miu Miu Fashion Week appearance" />
     </section>
 
-    <section class="detail-layout">
-      <article class="detail-info">
+    <!-- Record Context & Facts -->
+    <article class="record-content">
+      <section class="record-narrative">
+        <h2>The Story</h2>
+        <p>
+          Emi was invited to attend her first international fashion week as a guest of Miu Miu, 
+          marking a significant step in her growing presence within the global fashion industry. 
+          This moment represented more than a runway appearance—it symbolized the beginning of a new chapter.
+        </p>
+        <p>
+          Walking the Miu Miu runway in Paris, Emi embodied the brand's aesthetic perfectly. The collection 
+          featured minimalist silhouettes with warm gold accents, and her presence brought a distinctive elegance 
+          to the presentation. The moment captured photographers' attention and became a trending topic across 
+          fashion media.
+        </p>
+        <p>
+          This appearance would go on to open doors for future collaborations and brand partnerships, 
+          establishing Emi as a respected figure in the international fashion scene.
+        </p>
+      </section>
+
+      <section class="record-facts">
         <h2>Key Information</h2>
-        <dl>
-          <dt>Title</dt><dd>Miu Miu FW26 Show Appearance</dd>
-          <dt>Date</dt><dd>2 March 2026</dd>
-          <dt>Location</dt><dd>Paris, France</dd>
-          <dt>Brand</dt><dd>Miu Miu</dd>
-          <dt>Category</dt><dd>Runway</dd>
-        </dl>
-      </article>
+        <div class="facts-grid">
+          <div class="fact-item">
+            <span class="fact-label">Date</span>
+            <span class="fact-value">March 15, 2025</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Location</span>
+            <span class="fact-value">Paris, France</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Brand</span>
+            <span class="fact-value">Miu Miu</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Event</span>
+            <span class="fact-value">Runway Presentation</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Category</span>
+            <span class="fact-value">Career Milestone</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Section</span>
+            <span class="fact-value">IN STYLE</span>
+          </div>
+        </div>
+      </section>
+    </article>
 
-      <article class="detail-copy">
-        <h2>Description</h2>
-        <p>
-          This appearance marked a notable editorial moment with a minimalist silhouette, warm
-          gold accents, and strong visual narrative placement.
-        </p>
-        <h2>Significance</h2>
-        <p>
-          The record captures a milestone where fashion identity and global recognition converged,
-          becoming a key reference in Emi's archive timeline.
-        </p>
-      </article>
-    </section>
-
-    <section class="records">
-      <div class="section-head">
-        <h2>Related Records</h2>
-      </div>
-      <div class="record-grid">
-        <article class="card">
-          <div class="card-image"></div>
-          <p class="meta">2026 · Milan</p>
-          <h3>Prada Evening Archive Session</h3>
-          <a href="record.html">View Record</a>
-        </article>
-        <article class="card">
-          <div class="card-image tone-3"></div>
-          <p class="meta">2025 · Paris</p>
-          <h3>Vogue Editorial Museum Story</h3>
-          <a href="record.html">View Record</a>
-        </article>
-        <article class="card">
-          <div class="card-image tone-2"></div>
-          <p class="meta">2025 · Rome</p>
-          <h3>Valentino Resort Story</h3>
-          <a href="record.html">View Record</a>
-        </article>
+    <!-- Gallery -->
+    <section class="record-gallery" aria-label="Additional images and media">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/images/emi01.png" alt="Gallery image 1" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/emi01.png" alt="Gallery image 2" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/emi01.png" alt="Gallery image 3" />
+        </div>
       </div>
     </section>
+
+    <!-- Timeline Position -->
+    <section class="record-timeline-position">
+      <h2>Timeline Context</h2>
+      <div class="timeline-position-visual">
+        <div class="timeline-line"></div>
+        <div class="timeline-markers">
+          <span class="timeline-marker">2023</span>
+          <span class="timeline-marker">2024</span>
+          <span class="timeline-marker current">2025</span>
+          <span class="timeline-marker">2026</span>
+        </div>
+      </div>
+      <p class="timeline-context-text">This moment occurred in 2025, during Emi's international expansion phase, marking a shift toward 
+      global recognition and luxury brand collaborations.</p>
+    </section>
+
+    <!-- Related Records -->
+    <section class="related-records" aria-label="Related archive records">
+      <h2>Related Records</h2>
+      <div class="related-records-grid">
+        <a href="record.html" class="related-record-card">
+          <div class="related-record-image"></div>
+          <div class="related-record-meta">
+            <span class="badge">IN STYLE</span>
+            <h3>Prada Evening Archive</h3>
+            <time>Feb 2026 · Milan</time>
+          </div>
+        </a>
+        <a href="record.html" class="related-record-card">
+          <div class="related-record-image"></div>
+          <div class="related-record-meta">
+            <span class="badge">IN STYLE</span>
+            <h3>Vogue Thailand Feature</h3>
+            <time>Nov 2025 · Bangkok</time>
+          </div>
+        </a>
+        <a href="record.html" class="related-record-card">
+          <div class="related-record-image"></div>
+          <div class="related-record-meta">
+            <span class="badge">IN STYLE</span>
+            <h3>Dior Museum Capsule</h3>
+            <time>Sep 2025 · Paris</time>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Previous / Next Navigation -->
+    <nav class="record-pagination" aria-label="Record navigation">
+      <a href="record.html" class="nav-button nav-button-prev">
+        <span>←</span> PREVIOUS
+      </a>
+      <a href="record.html" class="nav-button nav-button-next">
+        NEXT <span>→</span>
+      </a>
+    </nav>
   </main>
 
   <footer class="site-footer">
@@ -112,3 +198,6 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+

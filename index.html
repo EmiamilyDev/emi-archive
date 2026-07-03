@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EMI Archive | Digital Museum</title>
+  <title>EMI Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="alternate icon" href="/favicon-unique.svg" />
 </head>
 <body class="home-ref">
   <header class="site-header">
@@ -20,35 +21,27 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="index.html" class="is-active">Home</a>
-        <div class="nav-item-with-submenu">
-          <a href="archive.html" class="nav-item">Archive</a>
-          <ul class="nav-submenu" aria-label="Archive categories">
-            <li><a href="archive.html?category=ON%20SCREEN">ON SCREEN</a></li>
-            <li><a href="archive.html?category=IN%20STYLE">IN STYLE</a></li>
-            <li><a href="archive.html?category=ON%20STAGE">ON STAGE</a></li>
-          </ul>
-        </div>
+        <a href="archive.html">Archive</a>
         <a href="timeline.html">Timeline</a>
         <a href="collections.html">Collections</a>
         <a href="about.html">About</a>
         <a href="archive.html#search">Search</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
   </header>
 
   <main>
     <!-- HERO SECTION -->
     <section class="hero shell home-ref" id="hero">
-      <div class="hero-copy">
-        <p class="kicker">Documenting a Creative Journey</p>
-        <h1>Preserving<br />the Moments<br />That Matter</h1>
-        <p>An editorial archive celebrating Emi Thasorn's artistic evolution across screen, style, and stage.</p>
-        <a class="button" href="archive.html">Enter Archive</a>
-      </div>
       <div class="hero-art">
         <img src="assets/images/emi01.png" alt="Emi Thasorn" />
         <span class="hero-medallion" aria-hidden="true">EA</span>
+      </div>
+      <div class="hero-copy">
+        <p class="kicker">Documenting a Creative Journey</p>
+        <h1>Every Journey<br />Deserves to Be<br />Remembered.</h1>
+        <p class="hero-tagline">Preserving the moments, milestones, and stories that have shaped Emi Thasorn's creative journey across screen, style, and stage.</p>
+        <a class="button" href="archive.html">Explore the Archive</a>
       </div>
     </section>
 
@@ -76,30 +69,48 @@
       </article>
     </section>
 
-    <!-- CREATIVE JOURNEY SECTION -->
-    <section class="journey shell" id="journey">
+    <!-- CREATIVE JOURNEY SECTION (Browse by Section) -->
+    <section class="browse-sections shell" id="journey">
       <div class="section-head section-head--centered">
-        <h2>Emi's Creative Journey</h2>
-        <p>Across three dimensions of artistry</p>
+        <h2>Explore by Creative Domain</h2>
+        <p>Emi's journey across three dimensions of artistry</p>
       </div>
-      <div class="journey-grid">
-        <article class="journey-card" data-section="on-screen">
-          <div class="journey-icon">🎬</div>
-          <h3>ON SCREEN</h3>
-          <p>Stories told through acting—from early career moments to lead roles and awards that defined her presence on screen.</p>
-          <a href="archive.html?category=ON%20SCREEN" class="link-arrow">Explore →</a>
+      <div class="section-cards-grid">
+        <article class="section-card" data-section="on-screen">
+          <div class="section-card-header">
+            <div class="section-icon">🎬</div>
+            <h3>ON SCREEN</h3>
+          </div>
+          <p class="section-description">Stories told through acting—from early career moments to lead roles that defined her on-screen presence.</p>
+          <div class="section-meta">
+            <span class="collection-count">6 Collections</span>
+            <span class="record-count">28 Records</span>
+          </div>
+          <a href="archive.html?category=ON%20SCREEN" class="section-link">Explore Section →</a>
         </article>
-        <article class="journey-card" data-section="in-style">
-          <div class="journey-icon">✨</div>
-          <h3>IN STYLE</h3>
-          <p>Fashion and visual identity—from fashion weeks to editorial moments and brand collaborations that shaped her aesthetic.</p>
-          <a href="archive.html?category=IN%20STYLE" class="link-arrow">Explore →</a>
+        <article class="section-card" data-section="in-style">
+          <div class="section-card-header">
+            <div class="section-icon">✨</div>
+            <h3>IN STYLE</h3>
+          </div>
+          <p class="section-description">Fashion and visual identity—from fashion weeks to editorial moments and brand collaborations.</p>
+          <div class="section-meta">
+            <span class="collection-count">6 Collections</span>
+            <span class="record-count">32 Records</span>
+          </div>
+          <a href="archive.html?category=IN%20STYLE" class="section-link">Explore Section →</a>
         </article>
-        <article class="journey-card" data-section="on-stage">
-          <div class="journey-icon">🎵</div>
-          <h3>ON STAGE</h3>
-          <p>Music and performance—from original soundtracks to live concerts and the connections forged through music.</p>
-          <a href="archive.html?category=ON%20STAGE" class="link-arrow">Explore →</a>
+        <article class="section-card" data-section="on-stage">
+          <div class="section-card-header">
+            <div class="section-icon">🎵</div>
+            <h3>ON STAGE</h3>
+          </div>
+          <p class="section-description">Music and performance—from original soundtracks to live concerts and the connections forged through music.</p>
+          <div class="section-meta">
+            <span class="collection-count">5 Collections</span>
+            <span class="record-count">18 Records</span>
+          </div>
+          <a href="archive.html?category=ON%20STAGE" class="section-link">Explore Section →</a>
         </article>
       </div>
     </section>
@@ -176,33 +187,32 @@
       </div>
     </section>
 
-    <!-- COLLECTIONS PREVIEW SECTION -->
-    <section class="collections-preview shell" id="collections-section">
+    <!-- FEATURED COLLECTIONS SECTION -->
+    <section class="featured-collections shell" id="collections-section">
       <div class="section-head">
-        <h2>Browse Collections</h2>
-        <a href="collections.html">View All Collections →</a>
+        <h2>Featured Collections</h2>
+        <p class="section-intro">Curated collections highlighting key moments and themes</p>
       </div>
-      <p class="section-intro">Explore curated collections organized by theme, category, and moment.</p>
-      <div class="collections-grid">
-        <a href="collections.html" class="collection-card">
-          <div class="collection-icon">📚</div>
-          <h3>All Collections</h3>
-          <p>Complete collection browsing</p>
+      <div class="featured-collections-grid">
+        <a href="collections.html" class="featured-collection-card">
+          <div class="collection-image">📚</div>
+          <h3>Magazine Covers</h3>
+          <p>8 Iconic Moments</p>
         </a>
-        <a href="archive.html?category=ON%20SCREEN" class="collection-card">
-          <div class="collection-icon">🎬</div>
-          <h3>On Screen</h3>
-          <p>6 Collections</p>
+        <a href="collections.html" class="featured-collection-card">
+          <div class="collection-image">🎬</div>
+          <h3>Lead Roles</h3>
+          <p>10 Career Defining</p>
         </a>
-        <a href="archive.html?category=IN%20STYLE" class="collection-card">
-          <div class="collection-icon">✨</div>
-          <h3>In Style</h3>
-          <p>7 Collections</p>
+        <a href="collections.html" class="featured-collection-card">
+          <div class="collection-image">✨</div>
+          <h3>Fashion Week</h3>
+          <p>8 Global Appearances</p>
         </a>
-        <a href="archive.html?category=ON%20STAGE" class="collection-card">
-          <div class="collection-icon">🎵</div>
-          <h3>On Stage</h3>
-          <p>5 Collections</p>
+        <a href="collections.html" class="featured-collection-card">
+          <div class="collection-image">🎵</div>
+          <h3>Live Performances</h3>
+          <p>12 Concert Moments</p>
         </a>
       </div>
     </section>
@@ -233,3 +243,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
