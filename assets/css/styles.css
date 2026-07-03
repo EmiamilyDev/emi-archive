@@ -3570,7 +3570,7 @@ dd {
 }
 
 .latest-records .latest-records-track .card {
-  flex: 0 0 min(320px, calc(100% - 2px));
+  flex: 0 0 min(280px, calc(100% - 2px));
   scroll-snap-align: start;
 }
 
