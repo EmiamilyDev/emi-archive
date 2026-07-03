@@ -5037,44 +5037,6 @@ dd {
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .home-ref .site-header {
-    display: none;
-  }
-
-  .home-ref {
-    padding-bottom: 76px;
-  }
-
-  .home-ref main {
-    padding-top: 0.75rem;
-  }
-
-  .mobile-home-tabs {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.4rem;
-    margin-bottom: 0.58rem;
-  }
-
-  .mobile-home-tabs a {
-    display: grid;
-    place-items: center;
-    min-height: 54px;
-    border: 1px solid #cfc8b8;
-    border-radius: 14px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.11em;
-    font-size: 0.7rem;
-    color: #4a473f;
-    background: #f5f2ec;
-  }
-
-  .mobile-home-tabs a.is-active {
-    color: #f4f1eb;
-    border-color: #171717;
-    background: #171717;
-  }
 
   .home-ref .hero {
     border: 0;
