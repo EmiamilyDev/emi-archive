@@ -13,17 +13,24 @@ function setupThemeToggle() {
   
   // Load saved theme preference
   const savedTheme = localStorage.getItem("theme") || "light";
+  console.log("🌙 Theme System: Loaded saved theme:", savedTheme);
+  
   if (savedTheme === "dark") {
     document.body.classList.add("dark-theme");
     if (toggle) toggle.textContent = "☀️";
+    console.log("🌙 Theme System: Applied dark theme class");
   }
   
-  if (!toggle) return;
+  if (!toggle) {
+    console.warn("🌙 Theme System: Toggle button not found!");
+    return;
+  }
   
   toggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark-theme");
     localStorage.setItem("theme", isDark ? "dark" : "light");
     toggle.textContent = isDark ? "☀️" : "🌙";
+    console.log("🌙 Theme System: Toggled to", isDark ? "dark" : "light", "mode");
   });
 }
 

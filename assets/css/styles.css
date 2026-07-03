@@ -2146,11 +2146,13 @@ body.dark-theme .link-arrow {
 
 .link-arrow:hover {
   transform: translateX(4px);
-  color: #b89a63;
+  color: var(--gold);
+  opacity: 0.9;
 }
 
 body.dark-theme .link-arrow:hover {
-  color: #e8c491;
+  color: var(--gold-dark);
+  opacity: 0.9;
 }
 
 .record-featured-image {
