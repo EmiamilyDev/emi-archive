@@ -3583,7 +3583,7 @@ dd {
 
 .latest-records .latest-card-cta {
   display: inline-block;
-  margin: 0.08rem 0.78rem 0.2rem;
+  margin: auto 0.78rem 0.2rem 0.78rem;
   margin-top: auto;
   font-family: "Inter", sans-serif;
   font-size: 0.66rem;
