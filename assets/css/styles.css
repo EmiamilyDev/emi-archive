@@ -4712,39 +4712,8 @@ dd {
     padding-bottom: 72px;
   }
 
-  .home-ref .site-header {
-    display: none;
-  }
-
   .home-ref main {
     padding-top: 0.55rem;
-  }
-
-  .mobile-home-tabs {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.34rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .mobile-home-tabs a {
-    display: grid;
-    place-items: center;
-    min-height: 52px;
-    border: 1px solid #cfc8b8;
-    border-radius: 14px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.11em;
-    font-size: 0.64rem;
-    color: #4a473f;
-    background: #f5f2ec;
-  }
-
-  .mobile-home-tabs a.is-active {
-    color: #f4f1eb;
-    border-color: #171717;
-    background: #171717;
   }
 
   .home-ref .header-inner {
