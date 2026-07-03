@@ -1,10 +1,10 @@
 const archiveRecords = [
-  { title: "Miu Miu FW26 Show Appearance", year: "2026", date: "2 Mar 2026", brand: "Miu Miu", eventType: "Runway", location: "Paris" },
-  { title: "Prada Evening Archive Session", year: "2026", date: "18 Feb 2026", brand: "Prada", eventType: "Editorial", location: "Milan" },
-  { title: "Vogue Thailand Cover Feature", year: "2025", date: "12 Nov 2025", brand: "Vogue", eventType: "Magazine", location: "Bangkok" },
-  { title: "Dior Museum Capsule Launch", year: "2025", date: "1 Sep 2025", brand: "Dior", eventType: "Brand Event", location: "Paris" },
-  { title: "Saint Laurent Black Series", year: "2024", date: "29 Jun 2024", brand: "Saint Laurent", eventType: "Campaign", location: "New York" },
-  { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome" }
+  { title: "Miu Miu FW26 Show Appearance", year: "2026", date: "2 Mar 2026", brand: "Miu Miu", eventType: "Runway", location: "Paris", category: "IN STYLE", subcategory: "Fashion Week" },
+  { title: "Prada Evening Archive Session", year: "2026", date: "18 Feb 2026", brand: "Prada", eventType: "Editorial", location: "Milan", category: "IN STYLE", subcategory: "Editorial" },
+  { title: "Vogue Thailand Cover Feature", year: "2025", date: "12 Nov 2025", brand: "Vogue", eventType: "Magazine", location: "Bangkok", category: "IN STYLE", subcategory: "Covers" },
+  { title: "Dior Museum Capsule Launch", year: "2025", date: "1 Sep 2025", brand: "Dior", eventType: "Brand Event", location: "Paris", category: "IN STYLE", subcategory: "Brand Campaigns" },
+  { title: "Saint Laurent Black Series", year: "2024", date: "29 Jun 2024", brand: "Saint Laurent", eventType: "Campaign", location: "New York", category: "IN STYLE", subcategory: "Brand Campaigns" },
+  { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome", category: "IN STYLE", subcategory: "Editorial" }
 ];
 
 function setupThemeToggle() {
@@ -195,6 +195,8 @@ function getFilteredRecords() {
   const brand = document.getElementById("brandFilter")?.value ?? "";
   const eventType = document.getElementById("eventFilter")?.value ?? "";
   const location = document.getElementById("locationFilter")?.value ?? "";
+  const category = document.getElementById("categoryFilter")?.value ?? "";
+  const subcategory = document.getElementById("subcategoryFilter")?.value ?? "";
 
   return archiveRecords.filter((record) => {
     const searchable = `${record.title} ${record.brand} ${record.location} ${record.eventType}`.toLowerCase();
@@ -203,7 +205,9 @@ function getFilteredRecords() {
     const brandMatch = !brand || record.brand === brand;
     const eventMatch = !eventType || record.eventType === eventType;
     const locationMatch = !location || record.location === location;
-    return searchMatch && yearMatch && brandMatch && eventMatch && locationMatch;
+    const categoryMatch = !category || record.category === category;
+    const subcategoryMatch = !subcategory || record.subcategory === subcategory;
+    return searchMatch && yearMatch && brandMatch && eventMatch && locationMatch && categoryMatch && subcategoryMatch;
   });
 }
 
@@ -215,13 +219,16 @@ function setupArchiveListPage() {
   fillSelectOptions("brandFilter", archiveRecords.map((entry) => entry.brand));
   fillSelectOptions("eventFilter", archiveRecords.map((entry) => entry.eventType));
   fillSelectOptions("locationFilter", archiveRecords.map((entry) => entry.location));
+  fillSelectOptions("categoryFilter", archiveRecords.map((entry) => entry.category));
+  fillSelectOptions("subcategoryFilter", archiveRecords.map((entry) => entry.subcategory));
 
   renderArchiveList(archiveRecords);
 
-  ["searchInput", "yearFilter", "brandFilter", "eventFilter", "locationFilter"].forEach((id) => {
+  ["searchInput", "yearFilter", "brandFilter", "eventFilter", "locationFilter", "categoryFilter", "subcategoryFilter"].forEach((id) => {
     const field = document.getElementById(id);
     if (field) field.addEventListener("input", () => renderArchiveList(getFilteredRecords()));
     if (field) field.addEventListener("change", () => renderArchiveList(getFilteredRecords()));
+  });
   });
 
   const toggle = document.getElementById("toggleView");
