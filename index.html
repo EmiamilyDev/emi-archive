@@ -38,66 +38,181 @@
   </header>
 
   <main>
-    <section class="hero shell home-ref">
+    <!-- HERO SECTION -->
+    <section class="hero shell home-ref" id="hero">
       <div class="hero-copy">
-        <p class="kicker">Fashion Archive</p>
-        <h1>Every look.<br />Every moment.<br />Every milestone.</h1>
-        <p>A curated archive of Emi's fashion journey.</p>
-        <a class="button" href="archive.html">Explore Fashion Archive</a>
+        <p class="kicker">Documenting a Creative Journey</p>
+        <h1>Preserving<br />the Moments<br />That Matter</h1>
+        <p>An editorial archive celebrating Emi Thasorn's artistic evolution across screen, style, and stage.</p>
+        <a class="button" href="archive.html">Enter Archive</a>
       </div>
       <div class="hero-art">
-        <img src="assets/images/emi01.png" alt="Emi portrait" />
+        <img src="assets/images/emi01.png" alt="Emi Thasorn" />
         <span class="hero-medallion" aria-hidden="true">EA</span>
       </div>
     </section>
 
-    <section class="stats shell" aria-label="Quick stats">
-      <article><p>Total Records</p><h2>24</h2></article>
-      <article><p>Fashion Events</p><h2>12</h2></article>
-      <article><p>Brands</p><h2>9</h2></article>
-      <article><p>Countries</p><h2>5</h2></article>
+    <!-- FEATURED RECORD SECTION -->
+    <section class="featured-record shell" id="featured">
+      <div class="section-head">
+        <p class="kicker">Featured</p>
+        <h2>A Moment Worth Remembering</h2>
+      </div>
+      <article class="record-featured">
+        <div class="record-featured-content">
+          <div class="record-featured-meta">
+            <span class="record-number">#001</span>
+            <span class="record-category">IN STYLE</span>
+            <span class="record-collection">Fashion Week</span>
+          </div>
+          <h3>First International Fashion Week</h3>
+          <p class="record-date">March 2025 • Paris</p>
+          <p class="record-story">Emi attended her first international Fashion Week as an invited guest of Miu Miu, marking a significant step in her growing presence within the global fashion industry. This moment represented more than a runway appearance—it symbolized the beginning of a new chapter.</p>
+          <a href="record.html" class="link-arrow">Read Full Record →</a>
+        </div>
+        <div class="record-featured-image">
+          <img src="assets/images/emi01.png" alt="Fashion Week Appearance" />
+        </div>
+      </article>
     </section>
 
-    <section class="records shell">
+    <!-- CREATIVE JOURNEY SECTION -->
+    <section class="journey shell" id="journey">
+      <div class="section-head section-head--centered">
+        <h2>Emi's Creative Journey</h2>
+        <p>Across three dimensions of artistry</p>
+      </div>
+      <div class="journey-grid">
+        <article class="journey-card" data-section="on-screen">
+          <div class="journey-icon">🎬</div>
+          <h3>ON SCREEN</h3>
+          <p>Stories told through acting—from early career moments to lead roles and awards that defined her presence on screen.</p>
+          <a href="archive.html?category=ON%20SCREEN" class="link-arrow">Explore →</a>
+        </article>
+        <article class="journey-card" data-section="in-style">
+          <div class="journey-icon">✨</div>
+          <h3>IN STYLE</h3>
+          <p>Fashion and visual identity—from fashion weeks to editorial moments and brand collaborations that shaped her aesthetic.</p>
+          <a href="archive.html?category=IN%20STYLE" class="link-arrow">Explore →</a>
+        </article>
+        <article class="journey-card" data-section="on-stage">
+          <div class="journey-icon">🎵</div>
+          <h3>ON STAGE</h3>
+          <p>Music and performance—from original soundtracks to live concerts and the connections forged through music.</p>
+          <a href="archive.html?category=ON%20STAGE" class="link-arrow">Explore →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- LATEST ARCHIVE RECORDS -->
+    <section class="latest-records shell" id="latest">
       <div class="section-head">
         <h2>Latest Archive Records</h2>
-        <a href="archive.html">View all</a>
+        <a href="archive.html">View All →</a>
       </div>
       <div class="record-grid">
         <article class="card">
           <div class="card-image"><img src="assets/images/emi01.png" alt="Miu Miu record thumbnail" /></div>
-          <p class="meta">Archive Record #024</p>
+          <div class="card-meta">
+            <span class="card-category">IN STYLE</span>
+            <span class="card-collection">Fashion Week</span>
+          </div>
           <h3>Miu Miu FW26 Show</h3>
-          <p class="card-keyline">Paris, France</p>
-          <p class="meta">Mar 2025</p>
+          <p class="card-location">Paris, France</p>
+          <p class="card-date">Mar 2025</p>
         </article>
         <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Vogue Thailand record thumbnail" /></div>
-          <p class="meta">Archive Record #021</p>
-          <h3>Vogue Thailand April 2025</h3>
-          <p class="card-keyline">Bangkok, Thailand</p>
-          <p class="meta">Apr 2025</p>
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Prada record thumbnail" /></div>
+          <div class="card-meta">
+            <span class="card-category">IN STYLE</span>
+            <span class="card-collection">Editorial</span>
+          </div>
+          <h3>Prada Evening Archive</h3>
+          <p class="card-location">Milan, Italy</p>
+          <p class="card-date">Feb 2026</p>
         </article>
         <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Saint Laurent record thumbnail" /></div>
-          <p class="meta">Archive Record #017</p>
-          <h3>Saint Laurent Women Summer</h3>
-          <p class="card-keyline">Paris, France</p>
-          <p class="meta">Jun 2024</p>
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Vogue record thumbnail" /></div>
+          <div class="card-meta">
+            <span class="card-category">IN STYLE</span>
+            <span class="card-collection">Covers</span>
+          </div>
+          <h3>Vogue Thailand Cover</h3>
+          <p class="card-location">Bangkok, Thailand</p>
+          <p class="card-date">Nov 2025</p>
         </article>
         <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Fendi record thumbnail" /></div>
-          <p class="meta">Archive Record #012</p>
-          <h3>Fendi Event</h3>
-          <p class="card-keyline">Milan, Italy</p>
-          <p class="meta">Feb 2024</p>
+          <div class="card-image"><img src="assets/images/emi01.png" alt="Dior record thumbnail" /></div>
+          <div class="card-meta">
+            <span class="card-category">IN STYLE</span>
+            <span class="card-collection">Brand Campaigns</span>
+          </div>
+          <h3>Dior Museum Capsule</h3>
+          <p class="card-location">Paris, France</p>
+          <p class="card-date">Sep 2025</p>
         </article>
       </div>
     </section>
 
-    <section class="quote shell">
-      <blockquote>Fashion is part of the story, not the whole story.<br />But every step leaves a mark.</blockquote>
-      <p class="quote-credit">— Emi</p>
+    <!-- TIMELINE PREVIEW SECTION -->
+    <section class="timeline-preview shell" id="timeline-section">
+      <div class="section-head">
+        <h2>Timeline Highlights</h2>
+        <a href="timeline.html">View Full Timeline →</a>
+      </div>
+      <div class="timeline-preview-grid">
+        <div class="timeline-item">
+          <span class="timeline-year">2024</span>
+          <p class="timeline-description">Beginning of international expansion</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2025</span>
+          <p class="timeline-description">First Fashion Week appearance</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2026</span>
+          <p class="timeline-description">Global brand collaborations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS PREVIEW SECTION -->
+    <section class="collections-preview shell" id="collections-section">
+      <div class="section-head">
+        <h2>Browse Collections</h2>
+        <a href="collections.html">View All Collections →</a>
+      </div>
+      <p class="section-intro">Explore curated collections organized by theme, category, and moment.</p>
+      <div class="collections-grid">
+        <a href="collections.html" class="collection-card">
+          <div class="collection-icon">📚</div>
+          <h3>All Collections</h3>
+          <p>Complete collection browsing</p>
+        </a>
+        <a href="archive.html?category=ON%20SCREEN" class="collection-card">
+          <div class="collection-icon">🎬</div>
+          <h3>On Screen</h3>
+          <p>6 Collections</p>
+        </a>
+        <a href="archive.html?category=IN%20STYLE" class="collection-card">
+          <div class="collection-icon">✨</div>
+          <h3>In Style</h3>
+          <p>7 Collections</p>
+        </a>
+        <a href="archive.html?category=ON%20STAGE" class="collection-card">
+          <div class="collection-icon">🎵</div>
+          <h3>On Stage</h3>
+          <p>5 Collections</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- INSPIRATIONAL QUOTE SECTION -->
+    <section class="quote-section shell" id="quote-section">
+      <blockquote class="quote-primary">
+        <p>"Artists continue moving forward. Fans remember. EMI Archive preserves the meaningful moments."</p>
+      </blockquote>
+      <p class="quote-byline">— The Philosophy of EMI Archive</p>
     </section>
   </main>
 
