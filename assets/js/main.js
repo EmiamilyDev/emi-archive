@@ -240,6 +240,32 @@ function setupArchiveListPage() {
   }
 }
 
+function setupNavSubmenu() {
+  const navItems = document.querySelectorAll(".nav-item-with-submenu");
+  
+  navItems.forEach((item) => {
+    const navItem = item.querySelector(".nav-item");
+    const submenu = item.querySelector(".nav-submenu");
+    
+    if (!navItem || !submenu) return;
+    
+    // Handle click on smaller screens
+    navItem.addEventListener("click", (e) => {
+      if (window.innerWidth <= 700) {
+        e.preventDefault();
+        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      }
+    });
+    
+    // Close submenu on link click
+    submenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        submenu.style.display = "none";
+      });
+    });
+  });
+}
+
 function setupMobileNav() {
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
@@ -259,7 +285,7 @@ function setupMobileNav() {
     setMenuState(!header.classList.contains("is-nav-open"));
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
+  nav.querySelectorAll("a:not(.nav-item)").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 
@@ -283,6 +309,7 @@ function setupMobileNav() {
 
 updateYear();
 setupThemeToggle();
+setupNavSubmenu();
 renderArchiveFeatureCard();
 setupArchiveListPage();
 setupMobileNav();
