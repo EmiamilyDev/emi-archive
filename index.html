@@ -20,17 +20,25 @@
         <span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
-        <a href="index.html" class="is-active">Home</a>
-        <a href="archive.html">Archive</a>
-        <a href="timeline.html">Timeline</a>
-        <a href="collections.html">Collections</a>
-        <a href="about.html">About</a>
-        <a href="archive.html#search">Search</a>
+        <a href="index.html" class="is-active" data-primary="home">Home</a>
+        <a href="archive.html?category=ON%20SCREEN" data-primary="ON SCREEN">On Screen</a>
+        <a href="archive.html?category=IN%20STYLE" data-primary="IN STYLE">In Style</a>
+        <a href="archive.html?category=ON%20STAGE" data-primary="ON STAGE">On Stage</a>
+        <a href="timeline.html" data-primary="timeline">Timeline</a>
+        <a href="about.html" data-primary="about">About</a>
+        <a href="archive.html#search" data-primary="search">Search</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <nav class="mobile-home-tabs shell" aria-label="Home section shortcuts">
+      <a class="is-active" href="index.html">Home</a>
+      <a href="archive.html?category=ON%20SCREEN">On Screen</a>
+      <a href="archive.html?category=IN%20STYLE">In Style</a>
+      <a href="archive.html?category=ON%20STAGE">On Stage</a>
+    </nav>
+
     <!-- HERO SECTION -->
     <section class="hero shell home-ref" id="hero">
       <div class="hero-art">
@@ -41,7 +49,47 @@
         <p class="kicker">Documenting a Creative Journey</p>
         <h1>Every Journey<br />Deserves to Be<br />Remembered.</h1>
         <p class="hero-tagline">Preserving the moments, milestones, and stories that have shaped Emi Thasorn's creative journey across screen, style, and stage.</p>
-        <a class="button" href="archive.html">Explore the Archive</a>
+        <a class="button" href="archive.html?category=ON%20SCREEN">Explore the Archive</a>
+      </div>
+    </section>
+
+    <!-- LATEST ARCHIVE RECORDS -->
+    <section class="latest-records shell" id="latest">
+      <header class="latest-records-head">
+        <h2>EXPLORE THE ARCHIVE</h2>
+        <div class="latest-slider-controls" aria-label="Latest archive slider controls">
+          <button type="button" class="latest-slider-button" data-latest-slide="prev" aria-label="View previous article">‹</button>
+          <button type="button" class="latest-slider-button" data-latest-slide="next" aria-label="View next article">›</button>
+        </div>
+      </header>
+      <div class="record-grid latest-records-track" id="latest-records-track">
+        <article class="card latest-clickable-card" data-href="archive.html?category=ON%20STAGE&amp;collection=Live%20Performances#search" role="link" tabindex="0" aria-label="Open Blush Blossom Fan Fest 2026 Midnight Bloom record">
+          <div class="card-image"><img src="assets/images/stage/on-stage01.jpg" alt="Blush Blossom Fan Fest 2026 Midnight Bloom record thumbnail" /></div>
+          <p class="latest-card-label">Archive Record #024</p>
+          <p class="archive-category">ON STAGE</p>
+          <h3>Blush Blossom Fan Fest 2026 Midnight Bloom</h3>
+          <p class="card-location">Bangkok, Thailand</p>
+          <p class="card-date">June 2026</p>
+          <a class="latest-card-cta" href="archive.html?category=ON%20STAGE&amp;collection=Live%20Performances#search">View Record</a>
+        </article>
+        <article class="card latest-clickable-card" data-href="archive.html?category=ON%20SCREEN&amp;collection=Film#search" role="link" tabindex="0" aria-label="Open Moon Shadow record">
+          <div class="card-image"><img src="assets/images/screen/on-screen01.jpg" alt="Moon Shadow record thumbnail" /></div>
+          <p class="latest-card-label">Archive Record #021</p>
+          <p class="archive-category">ON SCREEN</p>
+          <h3>Moon Shadow</h3>
+          <p class="card-location">GMMTV</p>
+          <p class="card-date">Coming Soon</p>
+          <a class="latest-card-cta" href="archive.html?category=ON%20SCREEN&amp;collection=Film#search">View Record</a>
+        </article>
+        <article class="card latest-clickable-card" data-href="archive.html?category=IN%20STYLE&amp;collection=Style%20Notes#search" role="link" tabindex="0" aria-label="Open Saint Laurent Women Summer record">
+          <div class="card-image"><img src="assets/images/style/in-style01.jpg" alt="Saint Laurent Women Summer record thumbnail" /></div>
+          <p class="latest-card-label">Archive Record #017</p>
+          <p class="archive-category">IN STYLE</p>
+          <h3>Saint Laurent<br />WOMEN SUMMER</h3>
+          <p class="card-location">Paris, France</p>
+          <p class="card-date">Jun 2024</p>
+          <a class="latest-card-cta" href="archive.html?category=IN%20STYLE&amp;collection=Style%20Notes#search">View Record</a>
+        </article>
       </div>
     </section>
 
@@ -115,56 +163,6 @@
       </div>
     </section>
 
-    <!-- LATEST ARCHIVE RECORDS -->
-    <section class="latest-records shell" id="latest">
-      <div class="section-head">
-        <h2>Latest Archive Records</h2>
-        <a href="archive.html">View All →</a>
-      </div>
-      <div class="record-grid">
-        <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Miu Miu record thumbnail" /></div>
-          <div class="card-meta">
-            <span class="card-category">IN STYLE</span>
-            <span class="card-collection">Fashion Week</span>
-          </div>
-          <h3>Miu Miu FW26 Show</h3>
-          <p class="card-location">Paris, France</p>
-          <p class="card-date">Mar 2025</p>
-        </article>
-        <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Prada record thumbnail" /></div>
-          <div class="card-meta">
-            <span class="card-category">IN STYLE</span>
-            <span class="card-collection">Editorial</span>
-          </div>
-          <h3>Prada Evening Archive</h3>
-          <p class="card-location">Milan, Italy</p>
-          <p class="card-date">Feb 2026</p>
-        </article>
-        <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Vogue record thumbnail" /></div>
-          <div class="card-meta">
-            <span class="card-category">IN STYLE</span>
-            <span class="card-collection">Covers</span>
-          </div>
-          <h3>Vogue Thailand Cover</h3>
-          <p class="card-location">Bangkok, Thailand</p>
-          <p class="card-date">Nov 2025</p>
-        </article>
-        <article class="card">
-          <div class="card-image"><img src="assets/images/emi01.png" alt="Dior record thumbnail" /></div>
-          <div class="card-meta">
-            <span class="card-category">IN STYLE</span>
-            <span class="card-collection">Brand Campaigns</span>
-          </div>
-          <h3>Dior Museum Capsule</h3>
-          <p class="card-location">Paris, France</p>
-          <p class="card-date">Sep 2025</p>
-        </article>
-      </div>
-    </section>
-
     <!-- TIMELINE PREVIEW SECTION -->
     <section class="timeline-preview shell" id="timeline-section">
       <div class="section-head">
@@ -234,13 +232,12 @@
 
   <nav class="mobile-dock" aria-label="Mobile quick navigation">
     <a class="is-active" href="index.html"><span aria-hidden="true">⌂</span><em>Home</em></a>
-    <a href="archive.html"><span aria-hidden="true">▦</span><em>Archive</em></a>
+    <a href="archive.html?category=ON%20SCREEN"><span aria-hidden="true">▦</span><em>Screen</em></a>
+    <a href="archive.html?category=IN%20STYLE"><span aria-hidden="true">◇</span><em>Style</em></a>
     <a href="timeline.html"><span aria-hidden="true">◷</span><em>Timeline</em></a>
-    <a href="collections.html"><span aria-hidden="true">◇</span><em>Collections</em></a>
-    <a href="about.html"><span aria-hidden="true">●</span><em>About</em></a>
+    <a href="archive.html#search"><span aria-hidden="true">⌕</span><em>Search</em></a>
   </nav>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-

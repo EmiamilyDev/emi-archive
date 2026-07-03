@@ -2,8 +2,31 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const rootDir = path.resolve(__dirname);
+
 const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  const rawPath = (req.url || '/').split('?')[0].split('#')[0];
+  let decodedPath;
+
+  try {
+    decodedPath = decodeURIComponent(rawPath);
+  } catch {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end('400 Bad Request');
+    return;
+  }
+
+  const requestPath = decodedPath === '/' ? 'index.html' : decodedPath.replace(/^[/\\]+/, '');
+  const normalizedPath = path.normalize(requestPath);
+  const filePath = path.resolve(rootDir, normalizedPath);
+  const normalizedRoot = rootDir.toLowerCase();
+  const normalizedFilePath = filePath.toLowerCase();
+
+  if (normalizedFilePath !== normalizedRoot && !normalizedFilePath.startsWith(`${normalizedRoot}${path.sep}`)) {
+    res.writeHead(403, { 'Content-Type': 'text/plain' });
+    res.end('403 Forbidden');
+    return;
+  }
   
   fs.readFile(filePath, (err, data) => {
     if (err) {

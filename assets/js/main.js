@@ -1,11 +1,32 @@
 const archiveRecords = [
   { title: "Miu Miu FW26 Show Appearance", year: "2026", date: "2 Mar 2026", brand: "Miu Miu", eventType: "Runway", location: "Paris", category: "IN STYLE", subcategory: "Fashion Week" },
   { title: "Prada Evening Archive Session", year: "2026", date: "18 Feb 2026", brand: "Prada", eventType: "Editorial", location: "Milan", category: "IN STYLE", subcategory: "Editorial" },
-  { title: "Vogue Thailand Cover Feature", year: "2025", date: "12 Nov 2025", brand: "Vogue", eventType: "Magazine", location: "Bangkok", category: "IN STYLE", subcategory: "Covers" },
+  { title: "Vogue Thailand Cover Feature", year: "2025", date: "12 Nov 2025", brand: "Vogue", eventType: "Magazine", location: "Bangkok", category: "IN STYLE", subcategory: "Magazine Covers" },
   { title: "Dior Museum Capsule Launch", year: "2025", date: "1 Sep 2025", brand: "Dior", eventType: "Brand Event", location: "Paris", category: "IN STYLE", subcategory: "Brand Campaigns" },
-  { title: "Saint Laurent Black Series", year: "2024", date: "29 Jun 2024", brand: "Saint Laurent", eventType: "Campaign", location: "New York", category: "IN STYLE", subcategory: "Brand Campaigns" },
-  { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome", category: "IN STYLE", subcategory: "Editorial" }
+  { title: "Saint Laurent Black Series", year: "2024", date: "29 Jun 2024", brand: "Saint Laurent", eventType: "Campaign", location: "New York", category: "IN STYLE", subcategory: "Style Notes" },
+  { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome", category: "IN STYLE", subcategory: "Front Row" },
+  { title: "Breakthrough Supporting Role", year: "2023", date: "16 Aug 2023", brand: "Channel 3", eventType: "TV Series", location: "Bangkok", category: "ON SCREEN", subcategory: "Supporting Roles" },
+  { title: "First Lead Television Role", year: "2024", date: "9 May 2024", brand: "One31", eventType: "Television", location: "Bangkok", category: "ON SCREEN", subcategory: "Lead Roles" },
+  { title: "Film Festival Debut", year: "2025", date: "20 Oct 2025", brand: "Thai Film Festival", eventType: "Film", location: "Busan", category: "ON SCREEN", subcategory: "Film" },
+  { title: "Original Soundtrack Release", year: "2024", date: "14 Jan 2024", brand: "EMI Music", eventType: "Single", location: "Bangkok", category: "ON STAGE", subcategory: "Original Soundtracks" },
+  { title: "First Live Concert Moment", year: "2025", date: "27 Jul 2025", brand: "Summer Stage", eventType: "Live Performance", location: "Seoul", category: "ON STAGE", subcategory: "Live Performances" },
+  { title: "Music Video Premiere", year: "2026", date: "6 Mar 2026", brand: "EMI Music", eventType: "Music Video", location: "Tokyo", category: "ON STAGE", subcategory: "Music Videos" }
 ];
+
+const archiveSectionConfig = {
+  "ON SCREEN": {
+    description: "Stories told through acting—from early career moments to lead roles that defined her on-screen presence.",
+    collections: ["Supporting Roles", "Lead Roles", "Film"]
+  },
+  "IN STYLE": {
+    description: "Fashion and visual identity—from fashion weeks to editorial moments and brand collaborations.",
+    collections: ["Fashion Week", "Editorial", "Magazine Covers", "Brand Campaigns", "Front Row", "Style Notes"]
+  },
+  "ON STAGE": {
+    description: "Music and live performance—from original soundtracks to singles, concerts, and music videos.",
+    collections: ["Original Soundtracks", "Live Performances", "Music Videos"]
+  }
+};
 
 const archiveFeaturedCard = {
   cardId: "001",
@@ -191,9 +212,49 @@ function getFilteredRecords() {
   });
 }
 
+function getRequestedArchiveCategory() {
+  const categoryFromUrl = new URLSearchParams(window.location.search).get("category");
+  if (!categoryFromUrl) return null;
+  const normalized = categoryFromUrl.toUpperCase().trim();
+  return archiveSectionConfig[normalized] ? normalized : null;
+}
+
+function setupArchiveSectionContext() {
+  const sectionTitle = document.getElementById("section-title");
+  if (!sectionTitle) return;
+
+  const requestedCategory = getRequestedArchiveCategory() || "ON SCREEN";
+  const sectionConfig = archiveSectionConfig[requestedCategory];
+
+  const sectionDescription = document.getElementById("section-description");
+  const sectionName = document.getElementById("section-name");
+  const collectionCount = document.getElementById("collection-count");
+  const recordCount = document.getElementById("record-count");
+  const collectionsGrid = document.getElementById("collections-grid");
+
+  if (sectionTitle) sectionTitle.textContent = requestedCategory;
+  if (sectionDescription) sectionDescription.textContent = sectionConfig.description;
+  if (sectionName) sectionName.textContent = requestedCategory;
+  if (collectionCount) collectionCount.textContent = String(sectionConfig.collections.length);
+
+  const inSectionRecords = archiveRecords.filter((record) => record.category === requestedCategory);
+  if (recordCount) recordCount.textContent = String(inSectionRecords.length);
+
+  if (collectionsGrid) {
+    collectionsGrid.innerHTML = sectionConfig.collections.map((collection) => `
+      <a class="collection-browser-card" href="archive.html?category=${encodeURIComponent(requestedCategory)}&collection=${encodeURIComponent(collection)}#search">
+        <h3>${collection}</h3>
+        <p>Browse records in this collection</p>
+      </a>
+    `).join("");
+  }
+}
+
 function setupArchiveListPage() {
   const container = document.getElementById("archiveRecords");
   if (!container) return;
+
+  setupArchiveSectionContext();
 
   fillSelectOptions("yearFilter", archiveRecords.map((entry) => entry.year));
   fillSelectOptions("brandFilter", archiveRecords.map((entry) => entry.brand));
@@ -202,7 +263,20 @@ function setupArchiveListPage() {
   fillSelectOptions("categoryFilter", archiveRecords.map((entry) => entry.category));
   fillSelectOptions("subcategoryFilter", archiveRecords.map((entry) => entry.subcategory));
 
-  renderArchiveList(archiveRecords);
+  const requestedCategory = getRequestedArchiveCategory();
+  const requestedCollection = new URLSearchParams(window.location.search).get("collection");
+  const categoryFilter = document.getElementById("categoryFilter");
+  const subcategoryFilter = document.getElementById("subcategoryFilter");
+
+  if (requestedCategory && categoryFilter) {
+    categoryFilter.value = requestedCategory;
+  }
+  if (requestedCollection && subcategoryFilter) {
+    const hasCollection = [...subcategoryFilter.options].some((option) => option.value === requestedCollection);
+    if (hasCollection) subcategoryFilter.value = requestedCollection;
+  }
+
+  renderArchiveList(getFilteredRecords());
 
   ["searchInput", "yearFilter", "brandFilter", "eventFilter", "locationFilter", "categoryFilter", "subcategoryFilter"].forEach((id) => {
     const field = document.getElementById(id);
@@ -330,6 +404,38 @@ function setupArchiveSubnav() {
   });
 }
 
+function setupPrimaryNavState() {
+  const nav = document.querySelector(".site-nav");
+  if (!nav) return;
+
+  const links = nav.querySelectorAll("a[data-primary]");
+  if (!links.length) return;
+
+  const pathname = window.location.pathname.toLowerCase();
+  const query = new URLSearchParams(window.location.search);
+  let target = null;
+
+  if (pathname.endsWith("index.html") || pathname.endsWith("/")) {
+    target = "home";
+  } else if (pathname.endsWith("timeline.html")) {
+    target = "timeline";
+  } else if (pathname.endsWith("about.html")) {
+    target = "about";
+  } else if (pathname.endsWith("archive.html")) {
+    target = query.get("category") || document.getElementById("section-title")?.textContent?.trim() || "ON SCREEN";
+    if (window.location.hash === "#search") target = "search";
+  } else if (pathname.endsWith("record.html")) {
+    target = document.querySelector(".record-section")?.textContent?.trim() || "IN STYLE";
+  }
+
+  if (!target) return;
+
+  links.forEach((link) => {
+    const key = (link.getAttribute("data-primary") || "").toUpperCase();
+    link.classList.toggle("is-active", key === String(target).toUpperCase());
+  });
+}
+
 function setupTimelineViews() {
   const viewButtons = document.querySelectorAll(".view-button");
   const timelineViews = document.querySelectorAll(".timeline-view");
@@ -387,11 +493,179 @@ function setupYearFilter() {
   });
 }
 
+function setupLatestCardNavigation() {
+  const cards = document.querySelectorAll(".latest-records .latest-clickable-card[data-href]");
+  if (!cards.length) return;
+
+  const isInteractive = (element) => {
+    if (!(element instanceof Element)) return false;
+    return Boolean(element.closest("a, button, input, select, textarea, [role='button'], [role='link']"));
+  };
+
+  cards.forEach((card) => {
+    const href = card.getAttribute("data-href");
+    if (!href) return;
+
+    card.addEventListener("click", (event) => {
+      if (isInteractive(event.target)) return;
+      window.location.href = href;
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      window.location.href = href;
+    });
+  });
+}
+
+function setupLatestRecordsSlider() {
+  const section = document.querySelector(".latest-records");
+  if (!section) return;
+
+  const track = section.querySelector(".latest-records-track");
+  const prevButton = section.querySelector("[data-latest-slide='prev']");
+  const nextButton = section.querySelector("[data-latest-slide='next']");
+  if (!(track instanceof HTMLElement) || !(prevButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) return;
+
+  const cards = track.querySelectorAll(".card");
+  if (cards.length <= 1) {
+    prevButton.disabled = true;
+    nextButton.disabled = true;
+    return;
+  }
+
+  const getSlideStep = () => {
+    const firstCard = cards[0];
+    if (!(firstCard instanceof HTMLElement)) return track.clientWidth;
+    const gap = Number.parseFloat(window.getComputedStyle(track).gap || "0");
+    const safeGap = Number.isFinite(gap) ? gap : 0;
+    return firstCard.getBoundingClientRect().width + safeGap;
+  };
+
+  const updateButtonState = () => {
+    const maxScrollLeft = track.scrollWidth - track.clientWidth;
+    prevButton.disabled = track.scrollLeft <= 1;
+    nextButton.disabled = track.scrollLeft >= maxScrollLeft - 1;
+  };
+
+  // Auto-slide every 5 seconds
+  let autoSlideTimer = null;
+  let isDragging = false;
+
+  const startAutoSlide = () => {
+    if (autoSlideTimer) clearInterval(autoSlideTimer);
+    autoSlideTimer = setInterval(() => {
+      if (!isDragging) {
+        const maxScrollLeft = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= maxScrollLeft - 1) {
+          track.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          track.scrollBy({ left: getSlideStep(), behavior: "smooth" });
+        }
+      }
+    }, 5000);
+  };
+
+  const stopAutoSlide = () => {
+    if (autoSlideTimer) clearInterval(autoSlideTimer);
+    autoSlideTimer = null;
+  };
+
+  const resetAutoSlide = () => {
+    stopAutoSlide();
+    startAutoSlide();
+  };
+
+  // Drag/swipe interaction
+  let dragStart = 0;
+  let dragOffset = 0;
+
+  const onDragStart = (e) => {
+    isDragging = true;
+    stopAutoSlide();
+    dragStart = e.type.includes("mouse") ? e.clientX : e.touches?.[0]?.clientX || 0;
+    dragOffset = 0;
+  };
+
+  const onDragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.type.includes("mouse") ? e.clientX : e.touches?.[0]?.clientX || 0;
+    dragOffset = dragStart - clientX;
+  };
+
+  const onDragEnd = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const threshold = 50; // pixels to trigger slide
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset > 0) {
+        // Swiped left, slide right
+        track.scrollBy({ left: getSlideStep(), behavior: "smooth" });
+      } else {
+        // Swiped right, slide left
+        track.scrollBy({ left: -getSlideStep(), behavior: "smooth" });
+      }
+    }
+
+    resetAutoSlide();
+  };
+
+  // Mouse events
+  track.addEventListener("mousedown", onDragStart);
+  document.addEventListener("mousemove", onDragMove);
+  document.addEventListener("mouseup", onDragEnd);
+
+  // Touch events
+  track.addEventListener("touchstart", onDragStart, { passive: true });
+  track.addEventListener("touchmove", onDragMove, { passive: true });
+  track.addEventListener("touchend", onDragEnd, { passive: true });
+
+  // Button clicks
+  prevButton.addEventListener("click", () => {
+    resetAutoSlide();
+    track.scrollBy({ left: -getSlideStep(), behavior: "smooth" });
+  });
+
+  nextButton.addEventListener("click", () => {
+    resetAutoSlide();
+    track.scrollBy({ left: getSlideStep(), behavior: "smooth" });
+  });
+
+  // Update state and reset auto-slide on manual scroll
+  track.addEventListener("scroll", updateButtonState, { passive: true });
+  track.addEventListener("scroll", () => {
+    if (!isDragging) {
+      // Reset auto-slide when scroll happens without dragging
+      // (e.g., from programmatic scroll)
+    }
+  }, { passive: true });
+
+  // Handle visibility change
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAutoSlide();
+    } else {
+      startAutoSlide();
+    }
+  });
+
+  window.addEventListener("resize", updateButtonState);
+  
+  // Start auto-slide
+  updateButtonState();
+  startAutoSlide();
+}
+
 updateYear();
 setupNavSubmenu();
 renderArchiveFeatureCard();
 setupArchiveListPage();
 setupMobileNav();
+setupPrimaryNavState();
 setupArchiveSubnav();
 setupTimelineViews();
 setupYearFilter();
+setupLatestRecordsSlider();
+setupLatestCardNavigation();
