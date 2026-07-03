@@ -7,6 +7,26 @@ const archiveRecords = [
   { title: "Valentino Resort Story", year: "2024", date: "3 Apr 2024", brand: "Valentino", eventType: "Editorial", location: "Rome" }
 ];
 
+function setupThemeToggle() {
+  const toggle = document.querySelector(".theme-toggle");
+  const html = document.documentElement;
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem("theme") || "light";
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    if (toggle) toggle.textContent = "☀️";
+  }
+  
+  if (!toggle) return;
+  
+  toggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-theme");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    toggle.textContent = isDark ? "☀️" : "🌙";
+  });
+}
+
 const archiveFeaturedCard = {
   cardId: "001",
   category: "Fashion",
@@ -255,6 +275,7 @@ function setupMobileNav() {
 }
 
 updateYear();
+setupThemeToggle();
 renderArchiveFeatureCard();
 setupArchiveListPage();
 setupMobileNav();
