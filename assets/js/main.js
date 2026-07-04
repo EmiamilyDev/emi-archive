@@ -350,13 +350,25 @@ function setupMobileNav() {
   if (!header || !toggle || !nav) return;
 
   const setMenuState = (isOpen) => {
+    const shouldLockScroll = window.innerWidth <= 700 && isOpen;
     header.classList.toggle("is-nav-open", isOpen);
     toggle.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
-    nav.setAttribute("aria-hidden", String(!isOpen));
+    if (window.innerWidth <= 700) {
+      nav.toggleAttribute("inert", !isOpen);
+    } else {
+      nav.removeAttribute("inert");
+    }
+    document.documentElement.classList.toggle("is-nav-open", shouldLockScroll);
+    document.body.classList.toggle("is-nav-open", shouldLockScroll);
   };
 
-  const closeMenu = () => setMenuState(false);
+  const closeMenu = () => {
+    if (nav.contains(document.activeElement)) {
+      toggle.focus();
+    }
+    setMenuState(false);
+  };
 
   toggle.addEventListener("click", () => {
     setMenuState(!header.classList.contains("is-nav-open"));
@@ -376,12 +388,14 @@ function setupMobileNav() {
   window.addEventListener("resize", () => {
     if (window.innerWidth > 700) {
       setMenuState(false);
-      nav.setAttribute("aria-hidden", "false");
+      nav.removeAttribute("inert");
+      document.documentElement.classList.remove("is-nav-open");
+      document.body.classList.remove("is-nav-open");
     }
   });
 
   setMenuState(false);
-  if (window.innerWidth > 700) nav.setAttribute("aria-hidden", "false");
+  if (window.innerWidth > 700) nav.removeAttribute("inert");
 }
 
 function setupArchiveSubnav() {
