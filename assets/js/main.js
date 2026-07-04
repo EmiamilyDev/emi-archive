@@ -377,12 +377,22 @@ function setupMobileNav() {
   nav.querySelectorAll("a:not(.nav-item)").forEach((link) => {
     link.addEventListener("click", closeMenu);
 
+    let touchFeedbackTimer = null;
+
     link.addEventListener("pointerdown", () => {
+      if (touchFeedbackTimer) {
+        window.clearTimeout(touchFeedbackTimer);
+        touchFeedbackTimer = null;
+      }
       link.classList.add("is-touch-active");
     });
 
     const clearTouchState = () => {
-      link.classList.remove("is-touch-active");
+      if (touchFeedbackTimer) window.clearTimeout(touchFeedbackTimer);
+      touchFeedbackTimer = window.setTimeout(() => {
+        link.classList.remove("is-touch-active");
+        touchFeedbackTimer = null;
+      }, 180);
     };
 
     link.addEventListener("pointerup", clearTouchState);

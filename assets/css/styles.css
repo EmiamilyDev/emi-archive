@@ -4582,6 +4582,12 @@ dd {
     transform: translateX(3px);
   }
 
+  .site-nav a:active {
+    color: var(--ink);
+    background: color-mix(in srgb, white 28%, var(--surface));
+    transform: translateX(3px);
+  }
+
   .site-nav a.is-touch-active {
     color: var(--ink);
     background: color-mix(in srgb, white 28%, var(--surface));
