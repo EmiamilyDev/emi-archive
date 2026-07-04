@@ -453,20 +453,20 @@ function setupPrimaryNavState() {
     });
   };
 
-  const pathname = window.location.pathname.toLowerCase();
+  const pathname = window.location.pathname.toLowerCase().replace(/\/$/, "");
   const query = new URLSearchParams(window.location.search);
   let target = null;
 
-  if (pathname.endsWith("index.html") || pathname.endsWith("/")) {
+  if (pathname === "" || pathname === "/" || pathname.endsWith("/index") || pathname.endsWith("/index.html")) {
     target = "home";
-  } else if (pathname.endsWith("timeline.html")) {
+  } else if (pathname.endsWith("/timeline") || pathname.endsWith("timeline.html")) {
     target = "timeline";
-  } else if (pathname.endsWith("about.html")) {
+  } else if (pathname.endsWith("/about") || pathname.endsWith("about.html")) {
     target = "about";
-  } else if (pathname.endsWith("archive.html")) {
+  } else if (pathname.endsWith("/archive") || pathname.endsWith("archive.html")) {
     target = query.get("category") || document.getElementById("section-title")?.textContent?.trim() || "ON SCREEN";
     if (window.location.hash === "#search") target = "search";
-  } else if (pathname.endsWith("record.html")) {
+  } else if (pathname.endsWith("/record") || pathname.endsWith("record.html")) {
     target = document.querySelector(".record-section")?.textContent?.trim() || "IN STYLE";
   }
 

@@ -264,7 +264,8 @@ a {
 
 .site-nav a.is-active {
   color: #211f1b;
-  border-bottom: 2px solid #b89a63;
+  border-bottom: 3px solid #b89a63;
+  padding-bottom: 0.12rem;
 }
 
 .nav-item-with-submenu {
@@ -4579,18 +4580,21 @@ dd {
   .site-nav a:focus-visible {
     color: var(--ink);
     background: color-mix(in srgb, white 28%, var(--surface));
+    box-shadow: inset 0 -2px 0 var(--ink);
     transform: translateX(3px);
   }
 
   .site-nav a:active {
     color: var(--ink);
     background: color-mix(in srgb, white 28%, var(--surface));
+    box-shadow: inset 0 -2px 0 var(--ink);
     transform: translateX(3px);
   }
 
   .site-nav a.is-touch-active {
     color: var(--ink);
     background: color-mix(in srgb, white 28%, var(--surface));
+    box-shadow: inset 0 -2px 0 var(--ink);
     transform: translateX(3px);
   }
 
@@ -4602,16 +4606,19 @@ dd {
     border-bottom-color: var(--ink);
     color: var(--ink);
     font-weight: 600;
+    box-shadow: inset 0 -3px 0 var(--ink);
   }
 
   .site-nav a:hover.is-active,
   .site-nav a:focus-visible.is-active {
     background: color-mix(in srgb, white 20%, var(--surface));
+    box-shadow: inset 0 -2px 0 var(--ink);
     transform: translateX(3px);
   }
 
   .site-nav a.is-touch-active.is-active {
     background: color-mix(in srgb, white 20%, var(--surface));
+    box-shadow: inset 0 -2px 0 var(--ink);
   }
 
   .site-nav a:first-child {
