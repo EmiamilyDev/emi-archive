@@ -376,6 +376,18 @@ function setupMobileNav() {
 
   nav.querySelectorAll("a:not(.nav-item)").forEach((link) => {
     link.addEventListener("click", closeMenu);
+
+    link.addEventListener("pointerdown", () => {
+      link.classList.add("is-touch-active");
+    });
+
+    const clearTouchState = () => {
+      link.classList.remove("is-touch-active");
+    };
+
+    link.addEventListener("pointerup", clearTouchState);
+    link.addEventListener("pointercancel", clearTouchState);
+    link.addEventListener("pointerleave", clearTouchState);
   });
 
   document.addEventListener("keydown", (event) => {
@@ -425,6 +437,12 @@ function setupPrimaryNavState() {
   const links = nav.querySelectorAll("a[data-primary]");
   if (!links.length) return;
 
+  const syncActiveLink = (targetLink) => {
+    links.forEach((link) => {
+      link.classList.toggle("is-active", link === targetLink);
+    });
+  };
+
   const pathname = window.location.pathname.toLowerCase();
   const query = new URLSearchParams(window.location.search);
   let target = null;
@@ -447,6 +465,7 @@ function setupPrimaryNavState() {
   links.forEach((link) => {
     const key = (link.getAttribute("data-primary") || "").toUpperCase();
     link.classList.toggle("is-active", key === String(target).toUpperCase());
+    link.addEventListener("click", () => syncActiveLink(link));
   });
 }
 

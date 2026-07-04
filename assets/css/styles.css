@@ -4582,6 +4582,12 @@ dd {
     transform: translateX(3px);
   }
 
+  .site-nav a.is-touch-active {
+    color: var(--ink);
+    background: color-mix(in srgb, white 28%, var(--surface));
+    transform: translateX(3px);
+  }
+
   .site-nav a:last-child {
     border-bottom: 0;
   }
@@ -4596,6 +4602,10 @@ dd {
   .site-nav a:focus-visible.is-active {
     background: color-mix(in srgb, white 20%, var(--surface));
     transform: translateX(3px);
+  }
+
+  .site-nav a.is-touch-active.is-active {
+    background: color-mix(in srgb, white 20%, var(--surface));
   }
 
   .site-nav a:first-child {
