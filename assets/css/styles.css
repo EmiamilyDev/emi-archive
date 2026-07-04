@@ -251,9 +251,8 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.22em;
   padding: 0.2rem 0;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
-  isolation: isolate;
 }
 
 .site-nav a:hover,
@@ -266,20 +265,12 @@ a {
 .site-nav a.is-active {
   color: #211f1b;
   border-bottom: 2px solid #b89a63;
-  padding-bottom: 0.08rem;
-  padding-left: 0.18rem;
-  padding-right: 0.18rem;
-}
-
-.site-nav a.is-active::before {
-  content: "";
-  position: absolute;
-  inset: 0.08rem -0.08rem 0.05rem;
-  background: rgba(255, 255, 255, 0.58);
-  border-radius: 0.45rem;
-  box-shadow: 0 1px 0 rgba(28, 28, 28, 0.04), inset 0 -1px 0 rgba(184, 154, 99, 0.72);
-  z-index: -1;
-  pointer-events: none;
+  padding-bottom: 0.06rem;
+  background: color-mix(in srgb, #b89a63 9%, white);
+  border-radius: 0.3rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  box-shadow: 0 1px 0 rgba(24, 22, 19, 0.05);
 }
 
 .nav-item-with-submenu {
@@ -4617,27 +4608,25 @@ dd {
   }
 
   .site-nav a.is-active {
-    border-bottom-color: var(--ink);
+    border-bottom-color: #b89a63;
+    border-bottom-width: 2px;
     color: var(--ink);
     font-weight: 600;
-    padding-left: 0.24rem;
-    padding-right: 0.24rem;
-  }
-
-  .site-nav a.is-active::before {
-    inset: 0.14rem -0.1rem 0.08rem;
-    background: rgba(255, 255, 255, 0.68);
-    box-shadow: 0 1px 0 rgba(28, 28, 28, 0.05), inset 0 -1px 0 rgba(28, 28, 28, 0.88);
+    background: color-mix(in srgb, #b89a63 10%, white);
+    border-radius: 0.36rem;
+    box-shadow: 0 1px 0 rgba(24, 22, 19, 0.05);
   }
 
   .site-nav a:hover.is-active,
   .site-nav a:focus-visible.is-active {
-    box-shadow: inset 0 -1px 0 rgba(28, 28, 28, 0.88);
+    background: color-mix(in srgb, #b89a63 14%, white);
+    box-shadow: 0 1px 0 rgba(24, 22, 19, 0.06), inset 0 -1px 0 rgba(184, 154, 99, 0.9);
     transform: translateX(3px);
   }
 
   .site-nav a.is-touch-active.is-active {
-    box-shadow: inset 0 -1px 0 rgba(28, 28, 28, 0.88);
+    background: color-mix(in srgb, #b89a63 14%, white);
+    box-shadow: 0 1px 0 rgba(24, 22, 19, 0.06), inset 0 -1px 0 rgba(184, 154, 99, 0.9);
   }
 
   .site-nav a:first-child {
