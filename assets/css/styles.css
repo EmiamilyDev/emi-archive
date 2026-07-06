@@ -194,10 +194,11 @@ a {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.55rem 1.8rem;
   flex: 1;
+  margin-left: auto;
 }
 
 .nav-toggle {
@@ -254,6 +255,7 @@ a {
   transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
 }
+
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
@@ -3600,6 +3602,108 @@ dd {
 .latest-records .latest-records-track .card {
   flex: 0 0 min(300px, calc(100% - 2px));
   scroll-snap-align: start;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(145deg, #fffcf8 0%, #f6f0e6 58%, #efe6d8 100%);
+  border-color: color-mix(in srgb, #cfbe9a 42%, var(--line));
+  box-shadow: 0 8px 20px rgba(23, 19, 12, 0.08);
+}
+
+.latest-records .latest-records-track .card:hover {
+  background:
+    radial-gradient(circle at 16% 14%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0) 46%),
+    linear-gradient(145deg, #fffdf9 0%, #f7f1e8 56%, #eadfcf 100%);
+  border-color: #c9b08a;
+  box-shadow: 0 14px 28px rgba(23, 19, 12, 0.14);
+}
+
+@media (min-width: 701px) and (max-width: 1099px) {
+  .latest-records .latest-records-track {
+    gap: 1rem;
+  }
+
+  .latest-records .latest-records-track .card {
+    flex: 0 0 min(430px, calc((100% - 1rem) / 2));
+  }
+}
+
+@media (min-width: 1100px) {
+  .latest-records .latest-records-track {
+    gap: 1.15rem;
+  }
+
+  .latest-records .latest-records-track .card {
+    flex: 0 0 min(520px, calc((100% - 2.3rem) / 3));
+    display: grid;
+    grid-template-columns: minmax(170px, 40%) 1fr;
+    grid-template-rows: auto auto auto auto auto 1fr;
+    align-items: start;
+    min-height: 232px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .latest-records .latest-records-track .card > :not(.card-image) {
+    grid-column: 2;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .latest-records .latest-records-track .card .card-image {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    margin: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    border-right: 1px solid var(--line);
+    border-radius: 0;
+  }
+
+  .latest-records .latest-records-track .card .latest-card-label {
+    grid-row: 1;
+    margin: 0.78rem 0 0.24rem;
+    padding-bottom: 0;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+  }
+
+  .latest-records .latest-records-track .card .archive-category {
+    grid-row: 2;
+    margin: 0 0 0.28rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.11em;
+  }
+
+  .latest-records .latest-records-track .card h3 {
+    grid-row: 3;
+    margin: 0 0 0.3rem;
+    font-size: clamp(1.1rem, 1.65vw, 1.45rem);
+    line-height: 1.16;
+  }
+
+  .latest-records .latest-records-track .card .card-location {
+    grid-row: 4;
+    margin: 0;
+    font-size: clamp(0.9rem, 1.1vw, 1.06rem);
+    line-height: 1.24;
+  }
+
+  .latest-records .latest-records-track .card .card-date {
+    grid-row: 5;
+    margin: 0.18rem 0 0;
+    padding-bottom: 0;
+    font-size: 0.82rem;
+  }
+
+  .latest-records .latest-records-track .card .latest-card-cta {
+    grid-row: 6;
+    margin: 0.46rem 0 0.72rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+    justify-self: start;
+    align-self: end;
+  }
 }
 
 .latest-records .latest-clickable-card:focus-visible {
@@ -4968,6 +5072,23 @@ dd {
     margin: 0;
   }
 
+  .latest-records .card {
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 0.62rem;
+    align-items: start;
+  }
+
+  .latest-records .card .card-image {
+    grid-column: 1;
+    grid-row: 1 / span 7;
+    align-self: start;
+  }
+
+  .latest-records .card > :not(.card-image) {
+    grid-column: 2;
+    min-width: 0;
+  }
+
   .home-ref .card .meta,
   .home-ref .card .card-keyline,
   .home-ref .card h3 {
@@ -4989,6 +5110,51 @@ dd {
     margin-top: 0.1rem;
     font-size: 0.67rem;
     color: #57534c;
+  }
+
+  .latest-records .card .latest-card-label {
+    padding: 0;
+    margin: 0;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+  }
+
+  .latest-records .card .archive-category {
+    padding: 0;
+    margin: 0.14rem 0 0;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+  }
+
+  .latest-records .card h3 {
+    padding: 0;
+    margin: 0.22rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  .latest-records .card .card-location {
+    padding: 0;
+    margin: 0.16rem 0 0;
+    font-size: 0.6rem;
+    line-height: 1.2;
+  }
+
+  .latest-records .card .card-date {
+    padding: 0;
+    margin: 0.12rem 0 0;
+    font-size: 0.58rem;
+    line-height: 1.2;
+  }
+
+  .latest-records .card .latest-card-cta {
+    margin: 0.18rem 0 0;
+    font-size: 0.58rem;
+    letter-spacing: 0.09em;
+    line-height: 1.2;
   }
 
   .home-ref .card:hover {
